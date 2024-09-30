@@ -13,11 +13,13 @@ public class GitHubTest {
         Configuration.baseUrl = "https://github.com"; // открываем страницу Selenide в GitHub (абсолютный путь)
         Configuration.pageLoadStrategy = "eager"; // команда для того, чтобы селенид не ждал загрузки всех картинок и тяжелых элементов. Только html.
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
+//        Configuration.holdBrowserOpen = true;
     }
     @Test
-    void fillTests() {
+    void fillTest() {
         open("/enterprise"); // открываем страницу Selenide в GitHub (относительный путь)
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
 //        executeJavaScript("$('#fixedban').remove()"); //убрать окна и баннеры
 //        executeJavaScript("$('footer').remove()"); //убрать окна и баннеры
         $(".HeaderMenu-nav").$(byText("Solutions")).hover();
